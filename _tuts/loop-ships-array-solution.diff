@@ -1,0 +1,23 @@
+diff --git a/index.php b/index.php
+index 526a0d2..0907e52 100644
+--- a/index.php
++++ b/index.php
+@@ -1,2 +1,15 @@
+ <?php
+-require 'functions.php';
+\ No newline at end of file
++require 'functions.php';
++
++$ships = get_ships();
++
++$currentStrength = 0;
++$strongestShip = [];
++foreach ($ships as $ship) {
++    if ($ship['strength'] > $currentStrength) {
++        $strongestShip = $ship;
++        $currentStrength = $ship['strength'];
++    }
++}
++
++echo $strongestShip['name'];
+\ No newline at end of file

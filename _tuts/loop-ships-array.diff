@@ -1,0 +1,46 @@
+diff --git a/functions.php b/functions.php
+new file mode 100644
+index 0000000..1c9702c
+--- /dev/null
++++ b/functions.php
+@@ -0,0 +1,31 @@
++<?php
++
++function get_ships()
++{
++    return [
++        'starfighter' => [
++            'name' => 'Jedi Starfighter',
++            'weapon_power' => 5,
++            'jedi_factor' => 15,
++            'strength' => 30,
++        ],
++        'cloakshape_fighter' => [
++            'name' => 'CloakShape Fighter',
++            'weapon_power' => 2,
++            'jedi_factor' => 2,
++            'strength' => 70,
++        ],
++        'super_star_destroyer' => [
++            'name' => 'Super Star Destroyer',
++            'weapon_power' => 70,
++            'jedi_factor' => 0,
++            'strength' => 500,
++        ],
++        'rz1_a_wing_interceptor' => [
++            'name' => 'RZ-1 A-wing interceptor',
++            'weapon_power' => 4,
++            'jedi_factor' => 4,
++            'strength' => 50,
++        ],
++    ];
++}
+diff --git a/index.php b/index.php
+new file mode 100644
+index 0000000..526a0d2
+--- /dev/null
++++ b/index.php
+@@ -0,0 +1,2 @@
++<?php
++require 'functions.php';
+\ No newline at end of file
