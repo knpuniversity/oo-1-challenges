@@ -1,0 +1,89 @@
+# Chapter 1
+project_startservermc:
+  question: How can you start the built-in PHP web server ?
+  explanation: |
+    The option passed to PHP must be a capital **S** `php -S`, because it stands for *server*,
+    a lower case **s** stands for *syntax highlight*.
+    Tip: you can run `php --help` to check all possible options.
+  features:
+    multiple_choice:
+      choices:
+        a: "ph -S localhost:8000"
+        b: "php -S localhost:8000"
+        c: "php -s localhost:8000"
+        d: "php start"
+      correct: b
+
+project_loopshipsarraycoding:
+  question: |
+    We would like to know which ship is the strongest one
+  question_steps:
+    - |
+        Make a call to `get_ships()` function
+    - |
+        Loop over the ships array and print on screen the name of the ship which has the highest strength field
+  step:
+  files:
+    functions.php:
+      read_only: true
+  features:
+    editor: ??? # what does it do ?
+    browser: ~
+  grading:
+    check_call_get_ships:
+      type: php
+      assertTrue: inputContains('new_file.php', 'get_ships();')
+      failure: Did you call the function `get_ships()`?
+    check_loop_over_ships:
+      type: php
+      assertTrue: inputContains('new_file.php', 'foreach')
+      failure: Are you looping over ships array?
+    check_ship_name:
+      type: php
+      assertTrue: |
+        true # what is this for ?
+        and outputContains('Super Star Destroyer')# how to test an echo?
+      failure: Did you check for `strength` field?
+      
+# Chapter 2
+classobject_keysmc:
+  question: How are named the attributes of a class ?
+  explanation: 
+  features:
+    multiple_choice:
+      choices:
+        a: "fields"
+        b: "methods"
+        c: "variables"
+        d: "properties"
+      correct: d
+      
+classobject_addshippropertiescoding:
+  question: |
+    Now that we know how to define properties and set it's value on a class, we would like 
+    to add the rest of the fields of our Ship array into the Ship class.
+  question_steps:
+    - |
+        Add all the keys defined in our ships array as properties in Ship class, using camel case.
+  step:
+  
+  files:
+    play.php: ~
+    functions.php:
+      read_only: true
+  features:
+    editor: ~
+    browser: ~
+  grading:
+    check_property_weaponPower:
+      type: php
+      assertTrue: inputContains('play.php', 'public $weaponPower;')
+      failure: Did you add `$weaponPower` property?
+    check_property_jediFactor:
+      type: php
+      assertTrue: inputContains('play.php', 'public $jediFactor;')
+      failure: Did you add `$jediFactor` property?
+    check_property_strength:
+      type: php
+      assertTrue: inputContains('play.php', 'public $strength;')
+      failure: Did you add `$strength` property?
