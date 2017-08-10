@@ -43,7 +43,7 @@ project_loopshipsarraycoding:
       type: php
       assertTrue: |
         true
-        and inputContains('index.php', 'echo $strongestShip['name'];')
+        and inputContains('index.php', "echo $strongestShip['name'];")
       failure: Did you check for `strength` field?
       
 # Chapter 2
