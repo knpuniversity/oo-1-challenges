@@ -1,5 +1,5 @@
 # Chapter 1
-project_startservermc:
+project_startservermc: 
   question: How can you start the built-in PHP web server ?
   explanation: |
     The option passed to PHP must be a capital **S** `php -S`, because it stands for *server*,
@@ -22,27 +22,28 @@ project_loopshipsarraycoding:
         Make a call to `get_ships()` function
     - |
         Loop over the ships array and print on screen the name of the ship which has the highest strength field
-  step:
+  step: loop-ships-array
   files:
+    index.php: ~
     functions.php:
       read_only: true
   features:
-    editor: ??? # what does it do ?
+    editor: ~
     browser: ~
   grading:
     check_call_get_ships:
       type: php
-      assertTrue: inputContains('new_file.php', 'get_ships();')
+      assertTrue: inputContains('index.php', 'get_ships();')
       failure: Did you call the function `get_ships()`?
     check_loop_over_ships:
       type: php
-      assertTrue: inputContains('new_file.php', 'foreach')
+      assertTrue: inputContains('index.php', 'foreach')
       failure: Are you looping over ships array?
     check_ship_name:
       type: php
       assertTrue: |
         true # what is this for ?
-        and outputContains('Super Star Destroyer')# how to test an echo?
+        and inputContains('index.php', 'echo $strongestShip['name'];')
       failure: Did you check for `strength` field?
       
 # Chapter 2
