@@ -48,8 +48,9 @@ project_loopshipsarraycoding:
       
 # Chapter 2
 classobject_keysmc:
-  question: How are named the attributes of a class ?
-  explanation: 
+  question: How are named the equivalent of array keys in a class ?
+  explanation: |
+    A property of a class can hold anything you want: A number, string, boolean, an object...
   features:
     multiple_choice:
       choices:
