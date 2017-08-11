@@ -1,0 +1,17 @@
+diff --git a/index.php b/index.php
+index a241c00..0a36327 100644
+--- a/index.php
++++ b/index.php
+@@ -1,6 +1,8 @@
+ <?php
+ 
+ class Ship {
+-    
+-}
+-
++    public $name;
++    public $weaponPower;
++    public $jediFactor;
++    public $strength;
++}
+\ No newline at end of file

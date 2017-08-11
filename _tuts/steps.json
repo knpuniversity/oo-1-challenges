@@ -14,7 +14,17 @@
             "id": "loop-ships-array-solution",
             "name": "loop-ships-array-solution",
             "description": null
+        },
+        {
+            "id": "class-object-add-ship-properties",
+            "name": "class-object-add-ship-properties",
+            "description": null
+        },
+        {
+            "id": "class-object-add-ship-properties-solution",
+            "name": "class-object-add-ship-properties-solution",
+            "description": null
         }
     ],
-    "sha": "5b52aeec139203d6cc53da68e2e2e26352721a0b"
+    "sha": "df6766b64258ef9611c2bf23bcbc7241846f822d"
 }
