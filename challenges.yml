@@ -69,7 +69,7 @@ classobject_addshippropertiescoding:
   step:
   
   files:
-    play.php: ~
+    index.php: ~
     functions.php:
       read_only: true
   features:
@@ -78,13 +78,13 @@ classobject_addshippropertiescoding:
   grading:
     check_property_weaponPower:
       type: php
-      assertTrue: inputContains('play.php', 'public $weaponPower;')
+      assertTrue: inputContains('index.php', 'public $weaponPower;')
       failure: Did you add `$weaponPower` property?
     check_property_jediFactor:
       type: php
-      assertTrue: inputContains('play.php', 'public $jediFactor;')
+      assertTrue: inputContains('index.php', 'public $jediFactor;')
       failure: Did you add `$jediFactor` property?
     check_property_strength:
       type: php
-      assertTrue: inputContains('play.php', 'public $strength;')
+      assertTrue: inputContains('index.php', 'public $strength;')
       failure: Did you add `$strength` property?
