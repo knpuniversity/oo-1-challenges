@@ -1,13 +1,15 @@
 diff --git a/index.php b/index.php
-index 0907e52..a241c00 100644
+index 4f0cff7..b7f2629 100644
 --- a/index.php
 +++ b/index.php
-@@ -1,15 +1,6 @@
+@@ -1,16 +1,9 @@
  <?php
 -require 'functions.php';
  
 -$ships = get_ships();
--
++class Ship {
++    public $name;
+ 
 -$currentStrength = 0;
 -$strongestShip = [];
 -foreach ($ships as $ship) {
@@ -15,9 +17,8 @@ index 0907e52..a241c00 100644
 -        $strongestShip = $ship;
 -        $currentStrength = $ship['strength'];
 -    }
-+class Ship {
-+    
  }
+ ?>
  
--echo $strongestShip['name'];
-\ No newline at end of file
+-<strong>The strongest ship is: </strong><?php echo $strongestShip['name'];?>
++<span>Look! My ship has <strong><?php ?></strong> weapon power</span>
