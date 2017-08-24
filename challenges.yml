@@ -1,27 +1,31 @@
-# Chapter 1
+# Chapter the-project
 project_startservermc:
-  question: How can you start the built-in PHP web server ?
+  question: |
+    We're using the built-in PHP web server for development. If you wanted to
+    use it on your production server, which command would you run?
   explanation: |
-    The option passed to PHP must be a capital **S** `php -S`, because it stands for *server*,
-    a lower case **s** stands for *syntax highlight*.
-    Tip: you can run `php --help` to check all possible options.
+    The intention of this PHP built-in web server is to aid application development,
+    testing, or for application demonstrations that are run in controlled environments.
+    So, just don't use it for production, it may leak memory, might have security risks, low performance, etc.
+    Instead, use any other real web server, like *Apache* or *Nginx*.
   features:
     multiple_choice:
       choices:
-        a: "ph -S localhost:8000"
-        b: "php -S localhost:8000"
-        c: "php -s localhost:8000"
-        d: "php start"
-      correct: b
+        a: "php -S localhost:8000"
+        b: "php -S www.yoursitename.com"
+        c: "The built-in web server should only be used for development"
+        d: "php -S yoursitename.com:80"
+      correct: c
 
 project_loopshipsarraycoding:
   question: |
-    We would like to know which ship is the strongest one
+    Our `get_ships()` function returns an array of *amazing* ships. But which
+    ship has the most strength? Let's find out and print it to the screen.
   question_steps:
     - |
-        Make a call to `get_ships()` function
+        In `index.php`, call `get_ships()` and set it to a variable.
     - |
-        Loop over the ships array and print on screen the name of the ship which has the highest strength field
+        Loop over the array of ships and print the `name` of the ship that has the highest strength.
   step: loop-ships-array
   files:
     index.php: ~
@@ -33,28 +37,28 @@ project_loopshipsarraycoding:
   grading:
     check_call_get_ships:
       type: php
-      assertTrue: inputContains('index.php', 'get_ships();')
-      failure: Did you call the function `get_ships()`?
+      assertTrue: inputContains('index.php', 'get_ships()')
+      failure: Did you call the `get_ships()` function?
     check_loop_over_ships:
       type: php
       assertTrue: inputContains('index.php', 'foreach')
-      failure: Are you looping over ships array?
+      failure: Don't forget to use a `foreach` to loop over the ships!
     check_ship_name:
-      type: php
-      assertTrue: |
-        true
-        and inputContains('index.php', "echo $strongestShip['name'];")
-      failure: Did you check for `strength` field?
+      type: http
+      assertTrue: body() matches '/Super Star Destroyer/'
+      failure: Look's like you printed the wrong ship. Did you check for `strength` field?
       
-# Chapter 2
+# Chapter basic-class
 classobject_keysmc:
-  question: How are named the equivalent of array keys in a class ?
+  question: |
+    Arrays have array *keys*. What is the equivalent of array keys for a class?
   explanation: |
-    A property of a class can hold anything you want: A number, string, boolean, an object...
+    A property in a class is very similar to a key in an array: both are basically
+    a key (e.g. `name`, `strength`) that can contain any value: a number, string, boolean, an object...
   features:
     multiple_choice:
       choices:
-        a: "fields"
+        a: "constants"
         b: "methods"
         c: "variables"
         d: "properties"
@@ -62,13 +66,19 @@ classobject_keysmc:
       
 classobject_addshippropertiescoding:
   question: |
-    Now that we know how to define properties and set it's value on a class, we would like 
-    to add the rest of the fields of our Ship array into the Ship class.
+    Now that we know how to define properties and set their values on a class, let's
+    keep going! Update the `Ship` class to have *all* of the fields that our ships
+    array has.
   question_steps:
     - |
-        Add all the keys defined in our ships array as properties in Ship class, using camel case.
+        Add each key defined in our ships array (e.g. `strength`, etc) as a property
+        in the Ship class. To follow a common convention, use camel case for the
+        property names (e.g. `weapon_power` becomes `weaponPower`).
+    - |
+        Instantiate a new Ship object and set it to a `$myShip` variable.
+    - |
+        Set the `weaponPower` property of your Ship to *100* and print this to the screen!
   step: class-object-add-ship-properties
-  
   files:
     index.php: ~
     functions.php:
@@ -79,13 +89,21 @@ classobject_addshippropertiescoding:
   grading:
     check_property_weaponPower:
       type: php
-      assertTrue: inputContains('index.php', 'public $weaponPower;')
+      assertTrue: class('\Ship').hasProperty('weaponPower')
       failure: Did you add `$weaponPower` property?
     check_property_jediFactor:
       type: php
-      assertTrue: inputContains('index.php', 'public $jediFactor;')
+      assertTrue: class('\Ship').hasProperty('jediFactor')
       failure: Did you add `$jediFactor` property?
     check_property_strength:
       type: php
-      assertTrue: inputContains('index.php', 'public $strength;')
+      assertTrue: class('\Ship').hasProperty('strength')
       failure: Did you add `$strength` property?
+    check_new_ship:
+      type: php
+      assertTrue: inputContains('index.php', '$myShip')
+      failure: Did you set a new Ship object to a `$myShip` variable?
+    check_print_weaponPower:
+      type: http
+      assertTrue: body() matches '/100/'
+      failure: I don't see weapon power in the output - did you print it?
